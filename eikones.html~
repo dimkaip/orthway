@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthway.org | Ψηφιακὲς Εἰκόνες</title>
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Επιπλέον στυλ για την Gallery */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Κόβει την εικόνα σωστά για να χωράει στο πλαίσιο */
+            border-bottom: 2px solid #f4f1ea;
+        }
+
+        .image-card h4 {
+            margin: 15px 10px 5px 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .image-card .download-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #8e735b;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .image-card .download-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Orthway.org</h1>
+        <p id="quote-display">«Ἐγώ εἰμι ἡ Ὁδὸς...»</p>
+    </header>
+
+    <div class="wrapper">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <main class="main-content">
+            <div class="content-card">
+                <h2>🖼️ Ψηφιακὲς Εἰκόνες</h2>
+                <p>Υψηλῆς ἀνάλυσης βυζαντινὲς εἰκόνες γιὰ πνευματικὴ χρήση καὶ μελέτη.</p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+                <div class="image-grid">
+                    
+                    <div class="image-card">
+                        <img src="eikones/panagia_glykofilousa.jpg" alt="Παναγία Γλυκοφιλούσα">
+                        <h4>Παναγία Γλυκοφιλούσα</h4>
+                        <a href="eikones/panagia_glykofilousa.jpg" download class="download-link">⬇️ Λήψη Εἰκόνας</a>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="eikones/agios_georgios.jpg" alt="Άγιος Γεώργιος">
+                        <h4>Ἅγιος Γεώργιος</h4>
+                        <a href="eikones/agios_georgios.jpg" download class="download-link">⬇️ Λήψη Εἰκόνας</a>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="eikones/pantokrator.jpg" alt="Ο Παντοκράτωρ">
+                        <h4>Ὁ Παντοκράτωρ</h4>
+                        <a href="eikones/pantokrator.jpg" download class="download-link">⬇️ Λήψη Εἰκόνας</a>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="eikones/agios_nikolaos.jpg" alt="Άγιος Νικόλαος">
+                        <h4>Ἅγιος Νικόλαος</h4>
+                        <a href="eikones/agios_nikolaos.jpg" download class="download-link">⬇️ Λήψη Εἰκόνας</a>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2026 Orthway.org - Πνευματικὴ Οἰκοδομή
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

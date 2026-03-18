@@ -1,0 +1,61 @@
+/**
+ * Orthway.org - Main JavaScript
+ * Περιλαμβάνει: 
+ * 1. Τυχαία επιλογή πολυτονικών χωρίων
+ * 2. Αυτόματη φόρτωση του Sidebar (sidebar.html)
+ */
+
+const quotes = [
+    "«Ἐγώ εἰμι τὸ Ἄλφα καὶ τὸ Ὡμέγα»",
+    "«Ἐγώ εἰμι ἡ Ὁδὸς καὶ ἡ Ἀλήθεια καὶ ἡ Ζωή»",
+    "«Ἐγώ εἰμι ἡ Ἀνάστασις καὶ ἡ Ζωή»",
+    "«Ἐγώ εἰμι τὸ Φῶς τοῦ κόσμου»",
+    "«Ἐγώ εἰμι ὁ Ἄρτος τῆς Ζωῆς»",
+    "«Ἐγώ εἰμι ἡ Θύρα· διʼ ἐμοῦ ἐάν τις εἰσέλθῃ, σωθήσεται»",
+    "«Ἐγώ εἰμι ὁ Ποιμὴν ὁ καλός»",
+    "«Ἐγώ εἰμι ἡ Ἀνάστασις καὶ ἡ Ζωή»",
+    "«Ἐγώ εἰμι ἡ Ἄμπελος ἡ ἀληθινή»",
+    "«Ὁ Ὤν καὶ ὁ Ἦν καὶ ὁ ἐρχόμενος, ὁ Παντοκράτωρ»",
+    "«Ἰδοὺ καινὰ ποιῶ πάντα»",
+    "«Ὁ ζῶν καὶ ἐγενόμην νεκρός, καὶ ἰδοὺ ζῶν εἰμι εἰς τοὺς αἰῶνας τῶν αἰώνων»"
+];
+
+/**
+ * Επιλέγει τυχαία ένα χωρίο και το εμφανίζει στο header
+ */
+function showRandomQuote() {
+    const display = document.getElementById('quote-display');
+    if (display) {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        display.innerText = quotes[randomIndex];
+    }
+}
+
+/**
+ * Φορτώνει το περιεχόμενο του sidebar.html στο στοιχείο με id "sidebar-container"
+ */
+function loadSidebar() {
+    const sidebarContainer = document.getElementById('sidebar-container');
+    if (sidebarContainer) {
+        fetch('sidebar.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Η φόρτωση του sidebar απέτυχε');
+                return response.text();
+            })
+            .then(data => {
+                sidebarContainer.innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Σφάλμα:', error);
+                sidebarContainer.innerHTML = "<p style='padding:20px;'>Σφάλμα φόρτωσης μενού.</p>";
+            });
+    }
+}
+
+/**
+ * Εκτέλεση λειτουργιών μόλις φορτώσει η σελίδα
+ */
+window.onload = function() {
+    showRandomQuote();
+    loadSidebar();
+};

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthway.org | Πατερικὰ Κείμενα</title>
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Orthway.org</h1>
+        <p id="quote-display">«Ἐγώ εἰμι ἡ Ὁδὸς...»</p>
+    </header>
+
+    <div class="wrapper">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <main class="main-content">
+            <div class="content-card">
+                <h2>📜 Πατερικὰ Κείμενα</h2>
+                <p>Λόγοι καὶ διδαχὲς τῶν Ἁγίων Πατέρων τῆς Ἐκκλησίας μας, ποὺ ἀποτελοῦν φάρο πνευματικῆς καθοδήγησης.</p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+                <div class="file-item">
+                    <div class="file-info">
+                        <span>Περὶ Προσευχῆς - Ἅγιος Ἰωάννης ὁ Χρυσόστομος</span>
+                        <small>Τύπος: PDF | Μέγεθος: 1.4 MB</small>
+                    </div>
+                    <div class="button-group">
+                        <a href="arxeia/chrysostomos_prosefxi.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/chrysostomos_prosefxi.pdf" download class="btn btn-download">Λήψη</a>
+                    </div>
+                </div>
+
+                <div class="file-item">
+                    <div class="file-info">
+                        <span>Εἰς τὴν Ἑξαήμερον - Μέγας Βασίλειος</span>
+                        <small>Τύπος: PDF | Μέγεθος: 2.1 MB</small>
+                    </div>
+                    <div class="button-group">
+                        <a href="arxeia/vasileios_exaimeros.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/vasileios_exaimeros.pdf" download class="btn btn-download">Λήψη</a>
+                    </div>
+                </div>
+
+                <div class="file-item">
+                    <div class="file-info">
+                        <span>Ἀσκητικοὶ Λόγοι - Ἅγιος Ἰσαὰκ ὁ Σύρος</span>
+                        <small>Τύπος: PDF | Μέγεθος: 3.5 MB</small>
+                    </div>
+                    <div class="button-group">
+                        <a href="arxeia/isaak_syros_askitika.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/isaak_syros_askitika.pdf" download class="btn btn-download">Λήψη</a>
+                    </div>
+                </div>
+
+                <div class="file-item">
+                    <div class="file-info">
+                        <span>Εὐεργετινὸς (Ἐπιλογὲς Κειμένων)</span>
+                        <small>Τύπος: PDF | Μέγεθος: 1.8 MB</small>
+                    </div>
+                    <div class="button-group">
+                        <a href="arxeia/evergetinos_keimena.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/evergetinos_keimena.pdf" download class="btn btn-download">Λήψη</a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2026 Orthway.org - Πνευματικὴ Οἰκοδομή
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

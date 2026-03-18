@@ -1,0 +1,11 @@
+<div class="sidebar-box">
+    <h3>ΘΕΜΑΤΟΛΟΓΙΑ</h3>
+    <ul>
+        <li><a href="index.html">🏠 Αρχική Σελίδα</a></li>
+        <li><a href="biblos.html">📖 Αγία Γραφή</a></li>
+        <li><a href="parakliseis.html">🙏 Παρακλήσεις</a></li>
+        <li><a href="paterika.html">📜 Πατερικά Κείμενα</a></li>
+        <li><a href="eikones.html">🖼️ Ψηφιακές Εικόνες</a></li>
+        <li><a href="contact.html">✉️ Επικοινωνία</a></li>
+    </ul>
+</div>

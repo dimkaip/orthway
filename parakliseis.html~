@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthway.org | Ιερές Παρακλήσεις</title>
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Orthway.org</h1>
+        <p id="quote-display">«Ἐγώ εἰμι ἡ Ὁδὸς...»</p>
+    </header>
+
+    <div class="wrapper">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <main class="main-content">
+            <div class="content-card">
+                <h2>Ἱερὲς Παρακλήσεις</h2>
+                <p>Συλλογὴ ἀπὸ Παρακλητικοὺς Κανόνες πρὸς τὴν Ὑπεραγία Θεοτόκο καὶ τοὺς Ἁγίους τῆς Ἐκκλησίας μας.</p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+                <div class="file-item">
+                    <div class="file-info">
+                        <span>Μικρὸς Παρακλητικὸς Κανὼν εἰς τὴν Ὑπεραγίαν Θεοτόκον</span>
+                        <small>Τύπος: PDF | Μέγεθος: 1.1 MB</small>
+                    </div>
+                    <div class="button-group">
+                        <a href="arxeia/paraklisi_panagias_mikri.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/paraklisi_panagias_mikri.pdf" download class="btn btn-download">Λήψη</a>
+                    </div>
+                </div>
+
+                <div class="file-item">
+                    <div class="file-info">
+                        <span>Παρακλητικὸς Κανὼν εἰς τὸν Ἅγιον Νεκτάριον Αἰγίνης</span>
+                        <small>Τύπος: PDF | Μέγεθος: 950 KB</small>
+                    </div>
+                    <div class="button-group">
+                        <a href="arxeia/paraklisi_agios_nektarios.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/paraklisi_agios_nektarios.pdf" download class="btn btn-download">Λήψη</a>
+                    </div>
+                </div>
+
+                <div class="file-item">
+                    <div class="file-info">
+                        <span>Παρακλητικὸς Κανὼν εἰς τὸν Ὅσιον Παΐσιον τὸν Ἁγιορείτην</span>
+                        <small>Τύπος: PDF | Μέγεθος: 1.3 MB</small>
+                    </div>
+                    <div class="button-group">
+                        <a href="arxeia/paraklisi_agios_paisios.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/paraklisi_agios_paisios.pdf" download class="btn btn-download">Λήψη</a>
+                    </div>
+                </div>
+
+                <div class="file-item">
+                    <div class="file-info">
+                        <span>Παρακλητικὸς Κανὼν εἰς τὸν Ἅγιον Ἐφραὶμ Νέας Μάκρης</span>
+                        <small>Τύπος: PDF | Μέγεθος: 880 KB</small>
+                    </div>
+                    <div class="button-group">
+                        <a href="arxeia/paraklisi_agios_efraim.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/paraklisi_agios_efraim.pdf" download class="btn btn-download">Λήψη</a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2026 Orthway.org - Πνευματικὴ Οἰκοδομή
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
