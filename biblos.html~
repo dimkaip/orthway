@@ -48,12 +48,12 @@
                 
                 <div class="file-item">
                     <div class="file-info">
-                        <span>Ἁγία Γραφή</span>
+                        <span>Καινὴ Διαθήκη</span>
                         <small>PDF | 1.5 MB</small>
                     </div>
                     <div class="button-group">
-                        <a href="arxeia/aggrafi.pdf" target="_blank" class="btn btn-view">Προβολή</a>
-                        <a href="arxeia/aggrafi.pdf" download class="btn btn-download">Λήψη</a>
+                        <a href="arxeia/kaini.pdf" target="_blank" class="btn btn-view">Προβολή</a>
+                        <a href="arxeia/kaini.pdf" download class="btn btn-download">Λήψη</a>
                     </div>
                 </div>                
                 
