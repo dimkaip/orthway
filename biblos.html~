@@ -35,7 +35,7 @@
                 <p>Εδώ μπορείτε να βρείτε κείμενα από την Παλαιά και την Καινή Διαθήκη.</p>
 
                 
-                <div class="file-item">
+<!--                <div class="file-item">
                     <div class="file-info">
                         <span>Ἁγία Γραφή</span>
                         <small>PDF | 1.5 MB</small>
@@ -44,7 +44,7 @@
                         <a href="arxeia/aggrafi.pdf" target="_blank" class="btn btn-view">Προβολή</a>
                         <a href="arxeia/aggrafi.pdf" download class="btn btn-download">Λήψη</a>
                     </div>
-                </div>
+                </div>-->
                 
                 <div class="file-item">
                     <div class="file-info">
