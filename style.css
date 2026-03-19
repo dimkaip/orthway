@@ -14,7 +14,7 @@ body {
    Header - Η Εικόνα 1200x600 με Χρυσό Πλαίσιο
    ========================================= */
 .main-header {
-    background: url('anastasi.jpg');
+    background: url('arxeia/anastasi.jpg');
     background-size: cover;
     background-position: center;
     

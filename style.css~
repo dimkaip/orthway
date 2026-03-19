@@ -35,7 +35,7 @@ body {
     
     align-items: center;
     
-	 padding-bottom: 20px;
+	 padding-bottom: 0px;
 	 box-sizing: border-box;
 
     border-radius: 4px;
