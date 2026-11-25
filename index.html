@@ -416,6 +416,7 @@
       <path d="M30,0v40M0,20h60" stroke="#fff" stroke-width="12"/>
       <path d="M30,0v40M0,20h60" stroke="#C8102E" stroke-width="7"/>
     </symbol>
+    <symbol id="flag-ro" viewBox="0 0 3 2" preserveAspectRatio="none"><rect width="1" height="2" fill="#002B7F"/><rect x="1" width="1" height="2" fill="#FCD116"/><rect x="2" width="1" height="2" fill="#CE1126"/></symbol>
   </defs>
 </svg>
 
@@ -428,6 +429,7 @@
   <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Γλώσσα / Language" hidden>
     <li role="presentation"><button type="button" role="option" data-lang="el" aria-selected="true"><svg class="flag" aria-hidden="true"><use href="#flag-el"/></svg>Ελληνικά</button></li>
     <li role="presentation"><button type="button" role="option" data-lang="en" aria-selected="false"><svg class="flag" aria-hidden="true"><use href="#flag-en"/></svg>English</button></li>
+    <li role="presentation"><button type="button" role="option" data-lang="ro" aria-selected="false"><svg class="flag" aria-hidden="true"><use href="#flag-ro"/></svg>Română</button></li>
   </ul>
 </div>
 
@@ -590,7 +592,44 @@
   "ant_a": "Open the full text →",
   "footer": "Holy Church of All Saints, Patras · Karatzas Side Street, Maroudas Square, 26223 Patras"
 };
-  var META = {"el": {"title": "Κανονική Ἀποτείχιση — Ἱερὸς Ναὸς Ἁγίων Πάντων Πατρῶν", "desc": "Ἐπίσημη δήλωση κανονικῆς ἀποτειχίσεως τοῦ π. Νικολάου Δημαρᾶ καὶ τοῦ Ἱεροῦ Ναοῦ Ἁγίων Πάντων Πατρῶν ἀπὸ τὴν Ἐκκλησία Γ.Ο.Χ. Ἑλλάδος."}, "en": {"title": "Canonical Walling-Off — Holy Church of All Saints, Patras", "desc": "Official declaration of the canonical walling-off of Fr. Nicholas Dimaras and the Holy Church of All Saints, Patras from the Church of the G.O.C. of Greece."}};
+  var RO = {
+  "kicker": "Document bisericesc oficial",
+  "title": "Apoteichisirea canonică (ruperea comuniunii)<br>a părintelui Nicolae Dimaras",
+  "parish": "Sfânta Biserică a Tuturor Sfinților din Patras",
+  "address": "Strada laterală Karatzas · Piața Maroudas · 26223 Patras",
+  "meta_date": "Cu dată certă 17.09.2026",
+  "meta_to": "Către: Arhiepiscopul Bisericii G.O.C. a Greciei",
+  "recipient": "<span class=\"salutation\">Către</span><br>\n      <strong>Prea Fericitul Arhiepiscop al Bisericii G.O.C. a Greciei</strong><br>\n      Sfânta Mănăstire a Sfântului Teodor Studitul, 20005 Athikia, Corint",
+  "intro": "Prin prezentul document oficial, cu dată certă, 17.09.2026, și în prezența membrilor Consiliului Parohial al Sfintei Biserici a Tuturor Sfinților, declar în mod expres și fără echivoc, în calitate de paroh al Sfintei Biserici și de președinte al Consiliului Parohial, că rup comuniunea bisericească cu Biserica G.O.C. a Greciei, aflată sub conducerea Arhiepiscopului Kallinikos Sarantopoulos, și mă separ prin apoteichisire (<i>apoteichizomai</i>) de Biserica G.O.C.",
+  "canons": "În conformitate cu Sfintele Canoane, Canonul 15 al Sinodului I-II (Protodeutera), ținut sub Fotie cel Mare în anul 861 d.Hr., coroborat cu Canonul 31 apostolic, din motivele expuse pe larg în documentul trimis Prea Fericitului Arhiepiscop Kallinikos la 15.09.2026, cu dată certă, atât prin poștă electronică, cât și în scris.",
+  "reasons_h": "Motivele apoteichisirii canonice",
+  "reasons_intro": "Motivele apoteichisirii mele canonice sunt expuse pe scurt mai jos, iar apoi pentru cei mai simpli:",
+  "r1": "Chrysostomos Maniotis, episcopul Atticii, propovăduiește în mod repetat și continuu erezia prin fapte, prin fraternizarea cu ecumeniștii și cu noua-calendariștii, consumându-se și amestecându-se cu erezia desfrânată, sărbătorind împreună cu aceștia în anul 2024, în veșminte preoțești depline și împreună cu clerul său.",
+  "r2": "A repetat sărbătorirea în comun în 2026, în Duminica Floriilor, și le-a oferit daruri, o cunună și, respectiv, o cruce lucrată cu meșteșug.",
+  "r3": "S-a rugat împreună cu ecumenistul Iustin de Kalamaria, noaptea, în mănăstirea sa, și i-a dăruit o părticică din Sfintele Moaște ale Sfântului Argyrios. A fraternizat cu noua-calendariștii la un congres al lor în Tesalonic.",
+  "r4": "I-a îngăduit părintelui Evanghelos Papanikolaou —pe care chiar episcopii lui îl socotesc aproape eretic— să vorbească în biserica Panagia Soumela.",
+  "r5": "Îi urcă la strană (<i>analogion</i>) pe cântăreții bisericești de stil nou, care sunt socotiți canonici după Sfintele Canoane.",
+  "r6": "Împărtășește Sfintele Taine mirenilor care sunt în comuniune cu Calendarul Nou.",
+  "r7": "Episcopul Indoneziei, Daniel Biantoro, este un mare ecumenist și se roagă neîncetat împreună cu protestanții în bisericile lor, el și preoții săi, și anume îmbrăcat în sfintele sale veșminte.",
+  "r8": "Rugăciunile în comun ale preoților lui cu protestanții sunt, de asemenea, nenumărate; el este membru al atotereticului Consiliu Mondial al Bisericilor.",
+  "r9": "Biserica soră a României, sub Mitropolitul Demosthenes, a rupt comuniunea cu Biserica G.O.C. a Greciei aflată sub Kallinikos, iar Sinodul condus de Eulogios a rostit anateme împotriva Bisericii G.O.C., după cum se arată în documentele incluse și anexate.",
+  "r10": "O mulțime de frați de seamă, în special oameni de știință, ne-au lepădat din pricina activității ecumeniste a episcopilor și preoților Bisericii G.O.C. a Greciei, deoarece aproape toți preoții Bisericii sunt dovedit în comuniune cu noua-calendariștii.",
+  "closing1": "Din toate aceste motive și din cele expuse în detaliu în studiul canonic anexat, rup comuniunea cu Biserica G.O.C. a Greciei, mă separ prin apoteichisire împreună cu turma mea și cu aprobarea Consiliului Parohial, canonic, potrivit Sfintelor Canoane de mai sus.",
+  "closing2": "<strong>Nu vă recunosc ca arhierei canonici</strong> și rup orice relație și comuniune cu voi, cu toți episcopii și preoții care sunt în comuniune cu voi.",
+  "place_date": "Patras, 17 septembrie 2026",
+  "names": "Subsemnatul, părintele Nicolae Dimaras",
+  "title2": "și Consiliul Parohial al Sfintei Biserici a Tuturor Sfinților din Patras",
+  "apot_h": "Respingerea pozițiilor greșite",
+  "apot_p": "Întreaga fundamentare canonică a apoteichisirii",
+  "eis_h": "Memoriu introductiv",
+  "eis_p": "Text introductiv la Memoriul canonic al comisiei de redactare formate din teologi, juriști și oameni de știință.",
+  "eis_a": "Deschide Memoriul introductiv →",
+  "ant_h": "Respingerea pozițiilor greșite",
+  "ant_a": "Deschide textul integral →",
+  "footer": "Sfânta Biserică a Tuturor Sfinților din Patras · Strada laterală Karatzas, Piața Maroudas, 26223 Patras"
+};
+  var DICT = { en: EN, ro: RO };
+  var META = {"el": {"title": "Κανονική Ἀποτείχιση — Ἱερὸς Ναὸς Ἁγίων Πάντων Πατρῶν", "desc": "Ἐπίσημη δήλωση κανονικῆς ἀποτειχίσεως τοῦ π. Νικολάου Δημαρᾶ καὶ τοῦ Ἱεροῦ Ναοῦ Ἁγίων Πάντων Πατρῶν ἀπὸ τὴν Ἐκκλησία Γ.Ο.Χ. Ἑλλάδος."}, "en": {"title": "Canonical Walling-Off — Holy Church of All Saints, Patras", "desc": "Official declaration of the canonical walling-off of Fr. Nicholas Dimaras and the Holy Church of All Saints, Patras from the Church of the G.O.C. of Greece."}, "ro": {"title": "Apoteichisirea canonică — Sfânta Biserică a Tuturor Sfinților din Patras", "desc": "Declarația oficială a apoteichisirii canonice a părintelui Nicolae Dimaras și a Sfintei Biserici a Tuturor Sfinților din Patras față de Biserica G.O.C. a Greciei."}};
   var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
   var greek = {};
   nodes.forEach(function (el) { greek[el.getAttribute('data-i18n')] = el.innerHTML; });
@@ -605,16 +644,16 @@
   function put(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
 
   function apply(lang) {
-    var en = lang === 'en';
+    var D = DICT[lang] || null;
     nodes.forEach(function (el) {
       var k = el.getAttribute('data-i18n');
-      el.innerHTML = en ? EN[k] : greek[k];
+      el.innerHTML = D ? D[k] : greek[k];
     });
     document.documentElement.lang = lang;
     document.title = META[lang].title;
     if (descEl) descEl.setAttribute('content', META[lang].desc);
     Array.prototype.forEach.call(document.querySelectorAll('a[href^="antikkrousi-website/"], a[href^="eisagogikon/"]'), function (a) {
-      a.setAttribute('href', a.getAttribute('href').replace(/\?lang=\w+$/, '') + (en ? '?lang=en' : ''));
+      a.setAttribute('href', a.getAttribute('href').replace(/\?lang=\w+$/, '') + (lang !== 'el' ? '?lang=' + lang : ''));
     });
     flag.setAttribute('href', '#flag-' + lang);
     code.textContent = lang.toUpperCase();
@@ -637,9 +676,9 @@
   document.addEventListener('click', function () { toggle(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { toggle(false); btn.focus(); } });
 
-  var q = (location.search.match(/[?&]lang=(el|en)/) || [])[1];
+  var q = (location.search.match(/[?&]lang=(el|en|ro)/) || [])[1];
   var initial = q || get();
-  if (initial !== 'el' && initial !== 'en') initial = 'el';
+  if (initial !== 'el' && initial !== 'en' && initial !== 'ro') initial = 'el';
   if (q) put(q);
   if (initial !== 'el') apply(initial);
 })();

@@ -17,7 +17,7 @@ def tag(open_tag, key):                      # add data-i18n to a unique opening
 
 rep('<link rel="stylesheet" href="assets/style.css"><script src="assets/reader.js" defer></script>',
     '<link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/lang.css">'
-    '<script src="assets/reader.js" defer></script><script src="assets/en.js" defer></script><script src="assets/lang.js" defer></script>')
+    '<script src="assets/reader.js" defer></script><script src="assets/en.js" defer></script><script src="assets/ro.js" defer></script><script src="assets/lang.js" defer></script>')
 tag('<a class="skip" href="#document">', 'skip')
 rep('<span>ΘΕΟΛΟΓΙΚΟ ΑΡΧΕΙΟ</span>', '<span data-i18n="brand">ΘΕΟΛΟΓΙΚΟ ΑΡΧΕΙΟ</span>')
 rep('<a href="assets/original.pdf" target="_blank" rel="noopener">Πρωτότυπο PDF ↗</a></header>',
