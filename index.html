@@ -363,9 +363,73 @@
     .doc-panel { box-shadow: none; border: none; }
     .attachment { display: none; }
   }
+
+  /* ---- Language switcher ---- */
+  .lang-switch { position: fixed; top: 14px; right: 14px; z-index: 50; font-family: 'Cinzel', serif; }
+  .lang-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--paper-panel); color: var(--accent-dark);
+    border: 1px solid var(--rule); border-radius: 999px;
+    padding: 7px 12px; font: inherit; font-size: 12px; letter-spacing: 0.08em;
+    cursor: pointer; box-shadow: 0 4px 14px var(--shadow);
+  }
+  .lang-btn:hover, .lang-btn[aria-expanded="true"] { background: rgba(201,162,75,0.15); }
+  .lang-btn:focus-visible, .lang-menu button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .lang-btn .chev { width: 10px; height: 10px; transition: transform .15s ease; }
+  .lang-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+  .flag { width: 24px; height: 16px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,0.25); flex-shrink: 0; display: block; }
+  .lang-menu {
+    position: absolute; right: 0; top: calc(100% + 6px); min-width: 160px;
+    margin: 0; padding: 4px; list-style: none;
+    background: var(--paper-panel); border: 1px solid var(--rule-soft);
+    border-radius: 6px; box-shadow: 0 10px 28px var(--shadow);
+  }
+  .lang-menu[hidden] { display: none; }
+  .lang-menu button {
+    display: flex; align-items: center; gap: 10px; width: 100%;
+    background: none; border: 0; border-radius: 4px; padding: 8px 10px;
+    font: inherit; font-size: 13px; letter-spacing: 0.04em; color: var(--ink); cursor: pointer; text-align: left;
+  }
+  .lang-menu button:hover { background: rgba(201,162,75,0.15); }
+  .lang-menu button[aria-selected="true"] { color: var(--accent); font-weight: 700; }
+  @media print { .lang-switch { display: none; } }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="flag-el" viewBox="0 0 27 18">
+      <rect width="27" height="18" fill="#0D5EAF"/>
+      <g fill="#fff">
+        <rect y="2" width="27" height="2"/><rect y="6" width="27" height="2"/>
+        <rect y="10" width="27" height="2"/><rect y="14" width="27" height="2"/>
+      </g>
+      <rect width="10" height="10" fill="#0D5EAF"/>
+      <path d="M4,0h2v10h-2z M0,4h10v2h-10z" fill="#fff"/>
+    </symbol>
+    <symbol id="flag-en" viewBox="0 0 60 40" preserveAspectRatio="none">
+      <clipPath id="uk-c"><path d="M30,20h30v20zv20h-30zh-30v-20zv-20h30z"/></clipPath>
+      <rect width="60" height="40" fill="#012169"/>
+      <path d="M0,0L60,40M60,0L0,40" stroke="#fff" stroke-width="7"/>
+      <path d="M0,0L60,40M60,0L0,40" clip-path="url(#uk-c)" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30,0v40M0,20h60" stroke="#fff" stroke-width="12"/>
+      <path d="M30,0v40M0,20h60" stroke="#C8102E" stroke-width="7"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="lang-switch" id="lang-switch">
+  <button type="button" class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" aria-label="Γλώσσα / Language">
+    <svg class="flag" id="lang-flag" aria-hidden="true"><use href="#flag-el"/></svg>
+    <span id="lang-code">EL</span>
+    <svg class="chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1.5,3.5 L5,7 L8.5,3.5"/></svg>
+  </button>
+  <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Γλώσσα / Language" hidden>
+    <li role="presentation"><button type="button" role="option" data-lang="el" aria-selected="true"><svg class="flag" aria-hidden="true"><use href="#flag-el"/></svg>Ελληνικά</button></li>
+    <li role="presentation"><button type="button" role="option" data-lang="en" aria-selected="false"><svg class="flag" aria-hidden="true"><use href="#flag-en"/></svg>English</button></li>
+  </ul>
+</div>
 
 <div class="hero" aria-hidden="true">
   <svg viewBox="0 0 200 130" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
@@ -398,60 +462,60 @@
 </div>
 
 <header>
-  <p class="kicker">Ἐπίσημον Ἐκκλησιαστικὸν Ἔγγραφον</p>
-  <h1>Κανονικὴ Ἀποτείχιση<br>πατρὸς Νικολάου Δημαρᾶ</h1>
-  <p class="parish">Ἱερὸς Ναὸς Ἁγίων Πάντων Πατρῶν</p>
-  <p class="address">Πάροδος Καρατζᾶ · Πλατεῖα Μαρούδα · 26223 Πάτρα</p>
+  <p class="kicker" data-i18n="kicker">Ἐπίσημον Ἐκκλησιαστικὸν Ἔγγραφον</p>
+  <h1 data-i18n="title">Κανονικὴ Ἀποτείχιση<br>πατρὸς Νικολάου Δημαρᾶ</h1>
+  <p class="parish" data-i18n="parish">Ἱερὸς Ναὸς Ἁγίων Πάντων Πατρῶν</p>
+  <p class="address" data-i18n="address">Πάροδος Καρατζᾶ · Πλατεῖα Μαρούδα · 26223 Πάτρα</p>
   <div class="divider"></div>
 </header>
 
 <main>
   <div class="doc-panel">
     <div class="doc-meta">
-      <span>Βεβαίας χρονολογίας 17.09.2026</span>
-      <span>Πρὸς: Ἀρχιεπίσκοπον Ἐκκλησίας Γ.Ο.Χ. Ἑλλάδος</span>
+      <span data-i18n="meta_date">Βεβαίας χρονολογίας 17.09.2026</span>
+      <span data-i18n="meta_to">Πρὸς: Ἀρχιεπίσκοπον Ἐκκλησίας Γ.Ο.Χ. Ἑλλάδος</span>
     </div>
 
-    <p class="recipient">
+    <p class="recipient" data-i18n="recipient">
       <span class="salutation">Πρὸς τὸν</span><br>
       <strong>Μακαριώτατον Ἀρχιεπίσκοπον Ἐκκλησίας Γ.Ο.Χ. Ἑλλάδος</strong><br>
       Ἱερὰν Μονὴν Ἁγίου Θεοδώρου τοῦ Στουδίτου, 20005 Ἀθίκια Κορινθίας
     </p>
 
-    <p class="drop-cap">
+    <p class="drop-cap" data-i18n="intro">
       Διὰ τοῦ παρόντος ἐπισήμου ἐγγράφου, βεβαίας χρονολογίας, 17.09.2026, καὶ παρόντων τῶν μελῶν τοῦ Ἐκκλησιαστικοῦ Συμβουλίου τοῦ Ἱεροῦ Ναοῦ τῶν Ἁγίων Πάντων, δηλώνω, ρητὰ καὶ ἀπερίφραστα, ὡς προϊστάμενος τοῦ Ἱεροῦ Ναοῦ καὶ τοῦ Ἐκκλησιαστικοῦ Συμβουλίου, ὅτι διακόπτω τὴν ἐκκλησιαστικὴν κοινωνίαν πρὸς τὴν Ἐκκλησίαν Γ.Ο.Χ. Ἑλλάδος ὑπὸ τὸν Ἀρχιεπίσκοπον κ. κ. Καλλίνικον Σαραντόπουλον, καὶ ἀποτειχίζομαι ἀπὸ τὴν Ἐκκλησίαν Γ.Ο.Χ.
     </p>
 
-    <div class="declaration canons">
+    <div class="declaration canons" data-i18n="canons">
       Σύμφωνα μὲ τοὺς Ἱερούς Κανόνες ΙΕ΄ τῆς Πρωτοδευτέρας (ΑΒ΄) Συνόδου, ἐπὶ Μεγάλου Φωτίου, τὸ 861 μ.Χ., σὲ συνδυασμὸν μὲ τὸν ΛΑ΄ Ἀποστολικὸν Κανόνα, γιὰ τοὺς λόγους ποὺ ἐκτενῶς παρουσιάζονται στὸ ἔγγραφο ποὺ ἀπεστάλη πρὸς τὸν Μακαριώτατον Ἀρχιεπίσκοπον κ. κ. Καλλίνικον στὶς 15.09.2026, βεβαίας χρονολογίας, τόσον διὰ τοῦ ἠλεκτρονικοῦ ταχυδρομείου, ὅσον καὶ ἐγγράφως.
     </div>
 
-    <h2 class="section">Οἱ λόγοι τῆς κανονικῆς ἀποτειχίσεως</h2>
+    <h2 class="section" data-i18n="reasons_h">Οἱ λόγοι τῆς κανονικῆς ἀποτειχίσεως</h2>
 
-    <p>Συνοπτικῶς ἀναφέρονται οἱ λόγοι τῆς Κανονικῆς μου ἀποτειχίσεως, καὶ στὴν συνέχειαν γιὰ τοὺς ἁπλουστέρους:</p>
+    <p data-i18n="reasons_intro">Συνοπτικῶς ἀναφέρονται οἱ λόγοι τῆς Κανονικῆς μου ἀποτειχίσεως, καὶ στὴν συνέχειαν γιὰ τοὺς ἁπλουστέρους:</p>
 
     <ul class="reasons">
-      <li>Ὁ Ἀττικῆς κ. Χρυσόστομος Μανιώτης, κατὰ συρροὴν καὶ κατ᾿ ἐξακολούθησιν, κηρύσσει αἵρεση ἐν τῇ πράξει, μὲ τὸν συναγελασμόν του μὲ τοὺς Οἰκουμενιστὲς καὶ τοὺς Νεοημερολογίτες, συναγελαζόμενος, συμφυρόμενος καὶ συγκυλιόμενος τῇ πόρνῃ αἱρέσει, συνεορτάζοντας μαζί τους τὸ 2024 ἐν πλήρει ἱερατικῇ στολῇ καὶ μετὰ τοῦ κλήρου του.</li>
-      <li>Ἐπανέλαβε τὸν συνεορτασμὸν τὸ 2026, τὴν Κυριακὴν τῶν Βαΐων, καὶ προσέφερε δῶρα σὲ αὐτούς, στέφανον καὶ περίτεχνον σταυρὸν ἀντιστοίχως.</li>
-      <li>Συμπροσευχήθη μετὰ τοῦ Οἰκουμενιστοῦ Ἰουστίνου Καλαμαριάς, νύχτα στὸ μοναστήρι του, καὶ τοῦ δώρισε ἀπότμημα Ἱεροῦ Λειψάνου τοῦ Ἁγίου Ἀργυρίου. Συναγελάστηκε μετὰ τῶν Νεοημερολογιτῶν σὲ συνέδριό τους στὴν Θεσσαλονίκην.</li>
-      <li>Ἐπέτρεψε στὸν παπα-Βαγγέλη Παπανικολάου —ποὺ καὶ δικοί του ἐπίσκοποι τὸν θεωροὺν σχεδὸν αἱρετικὸ— νὰ ὁμιλήσει μέσα στὴν Παναγία Σουμελᾶ.</li>
-      <li>Ἀνεβάζει ἱεροψάλτες τοῦ Νέου Ἡμερολογίου στὸ Ἀναλόγιον, οἱ ὁποῖοι θεωροῦνται κανονικοὶ κατὰ τοὺς Ἱερούς Κανόνες.</li>
-      <li>Παρέχει τὰ μυστήρια σὲ λαϊκοὺς ποὺ κοινωνοῦν μὲ τὸ Νέο Ἡμερολόγιο.</li>
-      <li>Ὁ ἐπίσκοπος Ἰνδονησίας κ. Δανιὴλ Μπιαντόρο εἶναι μέγας Οἰκουμενιστὴς καὶ συμπροσεύχεται συνεχῶς, αὐτὸς καὶ οἱ ἱερεῖς του, μετὰ τῶν Προτεσταντῶν στὶς ἐκκλησίες τους, καὶ δὴ μετὰ τῶν ἱερῶν του ἀμφίων ἐνδεδυμένος.</li>
-      <li>Εἶναι ἄπειρες ἐπίσης οἱ συμπροσευχὲς τῶν ἱερέων του μετὰ τῶν Προτεσταντῶν· εἶναι μέλος τοῦ παναιρετικοῦ Παγκοσμίου Συμβουλίου τῶν Ἐκκλησιῶν.</li>
-      <li>Ἡ ἀδελφὴ Ἐκκλησία τῆς Ρουμανίας ὑπὸ τὸν Μητροπολίτην Δημοσθένην διέκοψε τὴν κοινωνίαν μὲ τὴν Ἐκκλησίαν Γ.Ο.Χ. Ἑλλάδος ὑπὸ τὸν κ. κ. Καλλίνικον, καὶ ἡ ὑπὸ τὸν κ. κ. Εὐλόγιον Σύνοδος ἐξεφώνησε ἀναθέματα κατὰ τῆς Ἐκκλησίας Γ.Ο.Χ., κατὰ τὰ διαλαμβανόμενα καὶ ἐπισυναπτόμενα ἔγγραφα.</li>
-      <li>Πλῆθος ἀξιόλογων ἀδελφῶν, καὶ δὴ ἐπιστημόνων, μᾶς ἀπεκήρυξαν λόγῳ τῆς οἰκουμενιστικῆς δραστηριότητος τῶν ἐπισκόπων καὶ τῶν ἱερέων τῆς Ἐκκλησίας Γ.Ο.Χ. Ἑλλάδος, ἐπειδὴ καὶ σχεδὸν ὅλοι οἱ ἱερεῖς τῆς Ἐκκλησίας κοινωνοῦν ἀποδεδειγμένα τοὺς Νεοημερολογίτες.</li>
+      <li data-i18n="r1">Ὁ Ἀττικῆς κ. Χρυσόστομος Μανιώτης, κατὰ συρροὴν καὶ κατ᾿ ἐξακολούθησιν, κηρύσσει αἵρεση ἐν τῇ πράξει, μὲ τὸν συναγελασμόν του μὲ τοὺς Οἰκουμενιστὲς καὶ τοὺς Νεοημερολογίτες, συναγελαζόμενος, συμφυρόμενος καὶ συγκυλιόμενος τῇ πόρνῃ αἱρέσει, συνεορτάζοντας μαζί τους τὸ 2024 ἐν πλήρει ἱερατικῇ στολῇ καὶ μετὰ τοῦ κλήρου του.</li>
+      <li data-i18n="r2">Ἐπανέλαβε τὸν συνεορτασμὸν τὸ 2026, τὴν Κυριακὴν τῶν Βαΐων, καὶ προσέφερε δῶρα σὲ αὐτούς, στέφανον καὶ περίτεχνον σταυρὸν ἀντιστοίχως.</li>
+      <li data-i18n="r3">Συμπροσευχήθη μετὰ τοῦ Οἰκουμενιστοῦ Ἰουστίνου Καλαμαριάς, νύχτα στὸ μοναστήρι του, καὶ τοῦ δώρισε ἀπότμημα Ἱεροῦ Λειψάνου τοῦ Ἁγίου Ἀργυρίου. Συναγελάστηκε μετὰ τῶν Νεοημερολογιτῶν σὲ συνέδριό τους στὴν Θεσσαλονίκην.</li>
+      <li data-i18n="r4">Ἐπέτρεψε στὸν παπα-Βαγγέλη Παπανικολάου —ποὺ καὶ δικοί του ἐπίσκοποι τὸν θεωροὺν σχεδὸν αἱρετικὸ— νὰ ὁμιλήσει μέσα στὴν Παναγία Σουμελᾶ.</li>
+      <li data-i18n="r5">Ἀνεβάζει ἱεροψάλτες τοῦ Νέου Ἡμερολογίου στὸ Ἀναλόγιον, οἱ ὁποῖοι θεωροῦνται κανονικοὶ κατὰ τοὺς Ἱερούς Κανόνες.</li>
+      <li data-i18n="r6">Παρέχει τὰ μυστήρια σὲ λαϊκοὺς ποὺ κοινωνοῦν μὲ τὸ Νέο Ἡμερολόγιο.</li>
+      <li data-i18n="r7">Ὁ ἐπίσκοπος Ἰνδονησίας κ. Δανιὴλ Μπιαντόρο εἶναι μέγας Οἰκουμενιστὴς καὶ συμπροσεύχεται συνεχῶς, αὐτὸς καὶ οἱ ἱερεῖς του, μετὰ τῶν Προτεσταντῶν στὶς ἐκκλησίες τους, καὶ δὴ μετὰ τῶν ἱερῶν του ἀμφίων ἐνδεδυμένος.</li>
+      <li data-i18n="r8">Εἶναι ἄπειρες ἐπίσης οἱ συμπροσευχὲς τῶν ἱερέων του μετὰ τῶν Προτεσταντῶν· εἶναι μέλος τοῦ παναιρετικοῦ Παγκοσμίου Συμβουλίου τῶν Ἐκκλησιῶν.</li>
+      <li data-i18n="r9">Ἡ ἀδελφὴ Ἐκκλησία τῆς Ρουμανίας ὑπὸ τὸν Μητροπολίτην Δημοσθένην διέκοψε τὴν κοινωνίαν μὲ τὴν Ἐκκλησίαν Γ.Ο.Χ. Ἑλλάδος ὑπὸ τὸν κ. κ. Καλλίνικον, καὶ ἡ ὑπὸ τὸν κ. κ. Εὐλόγιον Σύνοδος ἐξεφώνησε ἀναθέματα κατὰ τῆς Ἐκκλησίας Γ.Ο.Χ., κατὰ τὰ διαλαμβανόμενα καὶ ἐπισυναπτόμενα ἔγγραφα.</li>
+      <li data-i18n="r10">Πλῆθος ἀξιόλογων ἀδελφῶν, καὶ δὴ ἐπιστημόνων, μᾶς ἀπεκήρυξαν λόγῳ τῆς οἰκουμενιστικῆς δραστηριότητος τῶν ἐπισκόπων καὶ τῶν ἱερέων τῆς Ἐκκλησίας Γ.Ο.Χ. Ἑλλάδος, ἐπειδὴ καὶ σχεδὸν ὅλοι οἱ ἱερεῖς τῆς Ἐκκλησίας κοινωνοῦν ἀποδεδειγμένα τοὺς Νεοημερολογίτες.</li>
     </ul>
 
-    <p>Γιὰ ὅλους αὐτοὺς τοὺς λόγους, καὶ γιὰ ὅσα λεπτομερῶς ἐκτίθενται στὴν ἐπισυναπτόμενη κανονικὴ μελέτην, διακόπτω τὴν κοινωνίαν πρὸς τὴν Ἐκκλησίαν Γ.Ο.Χ. Ἑλλάδος, ἀποτειχίζομαι μετὰ τοῦ ποιμνίου μου καὶ μὲ τὴν ἔγκριση τοῦ Ἐκκλησιαστικοῦ Συμβουλίου, κανονικῶς, κατὰ τοὺς ἀνωτέρω Ἱεροὺς Κανόνες.</p>
+    <p data-i18n="closing1">Γιὰ ὅλους αὐτοὺς τοὺς λόγους, καὶ γιὰ ὅσα λεπτομερῶς ἐκτίθενται στὴν ἐπισυναπτόμενη κανονικὴ μελέτην, διακόπτω τὴν κοινωνίαν πρὸς τὴν Ἐκκλησίαν Γ.Ο.Χ. Ἑλλάδος, ἀποτειχίζομαι μετὰ τοῦ ποιμνίου μου καὶ μὲ τὴν ἔγκριση τοῦ Ἐκκλησιαστικοῦ Συμβουλίου, κανονικῶς, κατὰ τοὺς ἀνωτέρω Ἱεροὺς Κανόνες.</p>
 
-    <p><strong>Δὲν σᾶς ἀναγνωρίζω ὡς κανονικοὺς ἀρχιερεῖς</strong>, καὶ διακόπτω κάθε σχέσιν καὶ κοινωνίαν μεθ᾿ ὑμῶν, ὅλων τῶν ἐπισκόπων καὶ ἱερέων ποὺ εἶναι κοινωνικοὶ πρὸς ὑμᾶς.</p>
+    <p data-i18n="closing2"><strong>Δὲν σᾶς ἀναγνωρίζω ὡς κανονικοὺς ἀρχιερεῖς</strong>, καὶ διακόπτω κάθε σχέσιν καὶ κοινωνίαν μεθ᾿ ὑμῶν, ὅλων τῶν ἐπισκόπων καὶ ἱερέων ποὺ εἶναι κοινωνικοὶ πρὸς ὑμᾶς.</p>
 
     <div class="signature">
       <div>
-        <p class="place-date">Πάτρα, 17 Σεπτεμβρίου 2026</p>
-        <p class="names">Ὁ ὑπογραφόμενος π. Νικόλαος Δημαρᾶς</p>
-        <p class="title2">καὶ τὸ Ἐκκλησιαστικὸν Συμβούλιον τοῦ Ἱεροῦ Ναοῦ τῶν Ἁγίων Πάντων Πατρῶν</p>
+        <p class="place-date" data-i18n="place_date">Πάτρα, 17 Σεπτεμβρίου 2026</p>
+        <p class="names" data-i18n="names">Ὁ ὑπογραφόμενος π. Νικόλαος Δημαρᾶς</p>
+        <p class="title2" data-i18n="title2">καὶ τὸ Ἐκκλησιαστικὸν Συμβούλιον τοῦ Ἱεροῦ Ναοῦ τῶν Ἁγίων Πάντων Πατρῶν</p>
       </div>
       <svg class="seal" viewBox="0 0 80 80" fill="none" stroke="currentColor" aria-hidden="true">
         <circle cx="40" cy="40" r="36" stroke-width="1.6" stroke-dasharray="1.5 3.5"/>
@@ -463,28 +527,122 @@
   </div>
 
   <section class="attachment" id="apot-pages" aria-labelledby="apot-pages-title">
-    <h2 id="apot-pages-title">Ἀντίκρουση ἐσφαλμένων θέσεων</h2>
-    <p>Ἡ πλήρης κανονικὴ τεκμηρίωσις τῆς ἀποτειχίσεως </p>
+    <h2 id="apot-pages-title" data-i18n="apot_h">Ἀντίκρουση ἐσφαλμένων θέσεων</h2>
+    <p data-i18n="apot_p">Ἡ πλήρης κανονικὴ τεκμηρίωσις τῆς ἀποτειχίσεως </p>
 
   <section class="attachment" id="eisagogikon" aria-labelledby="eisagogikon-title">
-    <h2 id="eisagogikon-title">Εἰσαγωγικὸν Ὑπόμνημα</h2>
-    <p>Εἰσαγωγικὸν κείμενον στὸ Κανονικὸν Ὑπόμνημα τῆς συντακτικῆς ἐπιτροπῆς Θεολόγων, Νομικῶν καὶ Ἐπιστημόνων.</p>
+    <h2 id="eisagogikon-title" data-i18n="eis_h">Εἰσαγωγικὸν Ὑπόμνημα</h2>
+    <p data-i18n="eis_p">Εἰσαγωγικὸν κείμενον στὸ Κανονικὸν Ὑπόμνημα τῆς συντακτικῆς ἐπιτροπῆς Θεολόγων, Νομικῶν καὶ Ἐπιστημόνων.</p>
     <div class="attachment-actions">
-      <a class="attachment-link" href="eisagogikon/index.html">Ἄνοιγμα Εἰσαγωγικοῦ Ὑπομνήματος →</a>
+      <a class="attachment-link" href="eisagogikon/index.html" data-i18n="eis_a">Ἄνοιγμα Εἰσαγωγικοῦ Ὑπομνήματος →</a>
     </div>
   </section>
 
   <section class="attachment" id="antikkrousi-website" aria-labelledby="antikkrousi-website-title">
-    <h2 id="antikkrousi-website-title">Ἀντίκκρουση ἐσφαλμένων θέσεων </h2>
+    <h2 id="antikkrousi-website-title" data-i18n="ant_h">Ἀντίκκρουση ἐσφαλμένων θέσεων </h2>
     <div class="attachment-actions">
-      <a class="attachment-link" href="antikkrousi-website/index.html">Ἄνοιγμα πλήρους κειμένου →</a>
+      <a class="attachment-link" href="antikkrousi-website/index.html" data-i18n="ant_a">Ἄνοιγμα πλήρους κειμένου →</a>
     </div>
   </section>
 
   <footer>
-    <p>Ἱερὸς Ναὸς Ἁγίων Πάντων Πατρῶν · Πάροδος Καρατζᾶ, Πλατεῖα Μαρούδα, 26223 Πάτρα</p>
+    <p data-i18n="footer">Ἱερὸς Ναὸς Ἁγίων Πάντων Πατρῶν · Πάροδος Καρατζᾶ, Πλατεῖα Μαρούδα, 26223 Πάτρα</p>
   </footer>
 </main>
 
+
+<script>
+(function () {
+  var KEY = 'orthway-lang';
+  var EN = {
+  "kicker": "Official Ecclesiastical Document",
+  "title": "Canonical Walling-Off (<i>Apoteichisis</i>)<br>of Father Nicholas Dimaras",
+  "parish": "Holy Church of All Saints, Patras",
+  "address": "Karatzas Side Street · Maroudas Square · 26223 Patras",
+  "meta_date": "Dated with certainty 17.09.2026",
+  "meta_to": "To: The Archbishop of the Church of the G.O.C. of Greece",
+  "recipient": "<span class=\"salutation\">To</span><br>\n      <strong>His Beatitude the Archbishop of the Church of the G.O.C. of Greece</strong><br>\n      Holy Monastery of Saint Theodore the Studite, 20005 Athikia, Corinthia",
+  "intro": "By means of this official document, of certain date, 17.09.2026, and in the presence of the members of the Parish Council of the Holy Church of All Saints, I declare, expressly and unequivocally, as the head of the Holy Church and of the Parish Council, that I cease ecclesiastical communion with the Church of the G.O.C. of Greece under Archbishop Kallinikos Sarantopoulos, and I wall myself off (<i>apoteichizomai</i>) from the Church of the G.O.C.",
+  "canons": "In accordance with the Holy Canons, Canon 15 of the First-Second (Protodeutera) Synod, held under Photios the Great in 861 AD, in combination with Apostolic Canon 31, for the reasons set out at length in the document sent to His Beatitude Archbishop Kallinikos on 15.09.2026, of certain date, both by electronic mail and in writing.",
+  "reasons_h": "The Reasons for the Canonical Walling-Off",
+  "reasons_intro": "The reasons for my Canonical walling-off are stated briefly below, and then for the more simple-minded:",
+  "r1": "Chrysostomos Maniotis, Bishop of Attica, repeatedly and continually preaches heresy in practice, by fraternizing with the Ecumenists and the New Calendarists, consorting and mingling with the harlot heresy, having celebrated together with them in 2024, in full priestly vestments and together with his clergy.",
+  "r2": "He repeated the joint celebration in 2026, on Palm Sunday, and offered them gifts, a wreath and an ornate cross respectively.",
+  "r3": "He prayed together with the Ecumenist Justin of Kalamaria, by night in his monastery, and gave him a fragment of the Holy Relic of Saint Argyrios. He fraternized with the New Calendarists at a conference of theirs in Thessaloniki.",
+  "r4": "He allowed Fr. Evangelos Papanikolaou —whom even his own bishops regard as almost a heretic— to speak inside the Panagia Soumela.",
+  "r5": "He brings New Calendar chanters up to the chanter’s stand (<i>analogion</i>), who are regarded as canonical according to the Holy Canons.",
+  "r6": "He provides the sacraments to laypeople who are in communion with the New Calendar.",
+  "r7": "The Bishop of Indonesia, Daniel Biantoro, is a great Ecumenist and continually prays together, he and his priests, with the Protestants in their churches, and indeed while clothed in his sacred vestments.",
+  "r8": "The joint prayers of his priests with the Protestants are likewise countless; he is a member of the thoroughly heretical World Council of Churches.",
+  "r9": "The sister Church of Romania, under Metropolitan Demosthenes, broke communion with the Church of the G.O.C. of Greece under Kallinikos, and the Synod under Eulogios pronounced anathemas against the Church of the G.O.C., as set out in the documents included and attached.",
+  "r10": "A multitude of worthy brethren, and in particular scholars, have rejected us because of the Ecumenist activity of the bishops and priests of the Church of the G.O.C. of Greece, since almost all the priests of the Church are demonstrably in communion with the New Calendarists.",
+  "closing1": "For all these reasons, and for what is set out in detail in the attached canonical study, I cease communion with the Church of the G.O.C. of Greece, and I wall myself off together with my flock and with the approval of the Parish Council, canonically, in accordance with the aforementioned Holy Canons.",
+  "closing2": "<strong>I do not recognize you as canonical hierarchs</strong>, and I break off every relationship and communion with you, and with all the bishops and priests who are in communion with you.",
+  "place_date": "Patras, 17 September 2026",
+  "names": "The undersigned, Fr. Nicholas Dimaras",
+  "title2": "and the Parish Council of the Holy Church of All Saints, Patras",
+  "apot_h": "Refutation of Erroneous Positions",
+  "apot_p": "The complete canonical substantiation of the walling-off",
+  "eis_h": "Introductory Memorandum",
+  "eis_p": "Introductory text to the Canonical Memorandum of the drafting committee of Theologians, Jurists and Scholars.",
+  "eis_a": "Open the Introductory Memorandum →",
+  "ant_h": "Refutation of Erroneous Positions",
+  "ant_a": "Open the full text →",
+  "footer": "Holy Church of All Saints, Patras · Karatzas Side Street, Maroudas Square, 26223 Patras"
+};
+  var META = {"el": {"title": "Κανονική Ἀποτείχιση — Ἱερὸς Ναὸς Ἁγίων Πάντων Πατρῶν", "desc": "Ἐπίσημη δήλωση κανονικῆς ἀποτειχίσεως τοῦ π. Νικολάου Δημαρᾶ καὶ τοῦ Ἱεροῦ Ναοῦ Ἁγίων Πάντων Πατρῶν ἀπὸ τὴν Ἐκκλησία Γ.Ο.Χ. Ἑλλάδος."}, "en": {"title": "Canonical Walling-Off — Holy Church of All Saints, Patras", "desc": "Official declaration of the canonical walling-off of Fr. Nicholas Dimaras and the Holy Church of All Saints, Patras from the Church of the G.O.C. of Greece."}};
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+  var greek = {};
+  nodes.forEach(function (el) { greek[el.getAttribute('data-i18n')] = el.innerHTML; });
+
+  var btn = document.getElementById('lang-btn');
+  var menu = document.getElementById('lang-menu');
+  var flag = document.querySelector('#lang-flag use');
+  var code = document.getElementById('lang-code');
+  var descEl = document.querySelector('meta[name="description"]');
+
+  function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function put(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+
+  function apply(lang) {
+    var en = lang === 'en';
+    nodes.forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      el.innerHTML = en ? EN[k] : greek[k];
+    });
+    document.documentElement.lang = lang;
+    document.title = META[lang].title;
+    if (descEl) descEl.setAttribute('content', META[lang].desc);
+    Array.prototype.forEach.call(document.querySelectorAll('a[href^="antikkrousi-website/"], a[href^="eisagogikon/"]'), function (a) {
+      a.setAttribute('href', a.getAttribute('href').replace(/\?lang=\w+$/, '') + (en ? '?lang=en' : ''));
+    });
+    flag.setAttribute('href', '#flag-' + lang);
+    code.textContent = lang.toUpperCase();
+    Array.prototype.forEach.call(menu.querySelectorAll('button'), function (b) {
+      b.setAttribute('aria-selected', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+  }
+  function toggle(open) {
+    menu.hidden = !open;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  btn.addEventListener('click', function (e) { e.stopPropagation(); toggle(menu.hidden); });
+  menu.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-lang]');
+    if (!b) return;
+    var lang = b.getAttribute('data-lang');
+    put(lang); apply(lang); toggle(false); btn.focus();
+  });
+  document.addEventListener('click', function () { toggle(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { toggle(false); btn.focus(); } });
+
+  var q = (location.search.match(/[?&]lang=(el|en)/) || [])[1];
+  var initial = q || get();
+  if (initial !== 'el' && initial !== 'en') initial = 'el';
+  if (q) put(q);
+  if (initial !== 'el') apply(initial);
+})();
+</script>
 </body>
 </html>

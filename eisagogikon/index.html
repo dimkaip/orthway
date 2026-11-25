@@ -52,10 +52,23 @@ h3.notes-title{font-size:1em;text-transform:uppercase;letter-spacing:.1em;color:
 .top{position:fixed;right:16px;bottom:16px;background:var(--gold);color:#fff;text-decoration:none;border-radius:50%;width:42px;height:42px;display:grid;place-items:center;font:20px system-ui}
 @media(max-width:600px){:root{--size:18px}p{text-align:left}}
 @media print{.bar,.top{display:none}body{background:#fff}}
+
+.lang-switch{position:relative;font:12px/1.4 system-ui,sans-serif}
+.lang-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);border:1px solid var(--gold);border-radius:999px;padding:6px 12px;font:inherit;letter-spacing:.08em;cursor:pointer}
+.lang-btn:hover,.lang-btn[aria-expanded="true"]{background:#f3ecdc}
+.lang-btn .chev{width:10px;height:10px;transition:transform .15s ease}
+.lang-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.flag{width:24px;height:16px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.25);flex-shrink:0;display:block}
+.lang-menu{position:absolute;right:0;top:calc(100% + 6px);min-width:160px;margin:0;padding:4px;list-style:none;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 10px 28px rgba(0,0,0,.15);z-index:30}
+.lang-menu[hidden]{display:none}
+.lang-menu button{display:flex;align-items:center;gap:10px;width:100%;background:none;border:0;border-radius:4px;padding:8px 10px;font:inherit;font-size:13px;color:var(--ink);text-align:left;cursor:pointer}
+.lang-menu button:hover{background:#f3ecdc}
+.lang-menu button[aria-selected="true"]{color:var(--gold);font-weight:700}
+@media print{.lang-switch{display:none}}
 </style>
 </head>
 <body>
-<div class="bar"><a href="../index.html">← Ἀρχική</a><span class="size">Μέγεθος γραμμάτων: <button onclick="z(-1)" aria-label="Μικρότερα">Α−</button> <button onclick="z(1)" aria-label="Μεγαλύτερα">Α+</button></span></div>
+<div class="bar"><a href="../index.html" data-i18n="home">← Ἀρχική</a><div class="lang-switch"><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="flag-el" viewBox="0 0 27 18"><rect width="27" height="18" fill="#0D5EAF"/><g fill="#fff"><rect y="2" width="27" height="2"/><rect y="6" width="27" height="2"/><rect y="10" width="27" height="2"/><rect y="14" width="27" height="2"/></g><rect width="10" height="10" fill="#0D5EAF"/><path d="M4,0h2v10h-2z M0,4h10v2h-10z" fill="#fff"/></symbol><symbol id="flag-en" viewBox="0 0 60 40" preserveAspectRatio="none"><clipPath id="uk-c"><path d="M30,20h30v20zv20h-30zh-30v-20zv-20h30z"/></clipPath><rect width="60" height="40" fill="#012169"/><path d="M0,0L60,40M60,0L0,40" stroke="#fff" stroke-width="7"/><path d="M0,0L60,40M60,0L0,40" clip-path="url(#uk-c)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v40M0,20h60" stroke="#fff" stroke-width="12"/><path d="M30,0v40M0,20h60" stroke="#C8102E" stroke-width="7"/></symbol></defs></svg><button type="button" class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" aria-label="Γλώσσα / Language"><svg class="flag" id="lang-flag" aria-hidden="true"><use href="#flag-el"/></svg><span id="lang-code">EL</span><svg class="chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1.5,3.5 L5,7 L8.5,3.5"/></svg></button><ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Γλώσσα / Language" hidden><li role="presentation"><button type="button" role="option" data-lang="el" aria-selected="true"><svg class="flag" aria-hidden="true"><use href="#flag-el"/></svg>Ελληνικά</button></li><li role="presentation"><button type="button" role="option" data-lang="en" aria-selected="false"><svg class="flag" aria-hidden="true"><use href="#flag-en"/></svg>English</button></li></ul></div><span class="size"><span data-i18n="sizeLabel">Μέγεθος γραμμάτων:</span> <button onclick="z(-1)" aria-label="Μικρότερα" data-aria-en="Smaller">Α−</button> <button onclick="z(1)" aria-label="Μεγαλύτερα" data-aria-en="Larger">Α+</button></span></div>
 <main id="top">
 <h1>Εἰσαγωγικόν Κείμενον στό Κανονικόν Ὑπόμνημα τῆς συντακτικῆς ἐπιτροπῆς Θεολόγων, Νομικῶν καί Ἐπιστημόνων τοῦ Ἱεροῦ Ναοῦ τῶν Ἁγίων Πάντων Πατρῶν, γιά τήν ἐνημέρωσιν τῶν ἀπανταχοῦ Ὀρθοδόξων</h1>
 <p class="deck"><u>Ἀποσχίστηκε ἡ ἐκκλησία ΓΟΧ Ἑλλάδος ἀπό τήν Καθολικήν Ὀρθόδοξον Ἐκκλησίαν,</u> διδάσκοντας καί συνοδικά πλέον ἀλλότρια τῆς ἐκκλησιαστικῆς Παραδόσεως καί τῆς διδασκαλίας τῶν Πατέρων διδάγματα, ἀπό ὅ,τι πάντοτε, παντοῦ καί ὑπό πάντων ἐπιστεύθη, κριτήριον πού ἀποτελεῖ τό δόγμα τῆς Καθολικότητος καί τῆς Ἑνότητος τῆς Ὁμολογίας τῆς Πίστεως καί τῆς Ὀρθοδοξίας</p>
@@ -416,11 +429,13 @@ h3.notes-title{font-size:1em;text-transform:uppercase;letter-spacing:.1em;color:
 <section class="footnotes" role="doc-endnotes"><h2>Ὑποσημειώσεις</h2><ol><li id="fn1" role="doc-endnote"><p>Βλ. <strong>Ὁσίου Θεοδώρου Στουδίτου,</strong> PG τ. 99, στλ. 1101-1108, <strong>Ἐπιστολὴ ΝΓ΄, Στεφάνῳἀναγνώστῃ καὶ τοῖς σὺν αὐτῷ</strong>, E.L.I.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li><li id="fn2" role="doc-endnote"><p>Τίτλος Α΄ Κεφαλ. 2<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li><li id="fn3" role="doc-endnote"><p>ΕΠΕ 10, 30.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li><li id="fn4" role="doc-endnote"><p><strong>G. Fatouros (Ed.), <em>Theodori Studitae  </em></strong><em>Epistulae</em> 34, 99, 138.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li><li id="fn5" role="doc-endnote"><p><strong>G. Fatouros (Ed.), <em>Theodori Studitae  </em></strong><em>Epistulae</em> 49, 142,85.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li></ol></section>
 
 </main>
-<a class="top" href="#top" aria-label="Ἐπάνω">↑</a>
+<a class="top" href="#top" aria-label="Ἐπάνω" data-aria-en="Up">↑</a>
 <script>
 var s=20;try{s=+localStorage.getItem('sz')||20}catch(e){}
 function z(d){s=Math.min(30,Math.max(15,s+d*2));document.documentElement.style.setProperty('--size',s+'px');try{localStorage.setItem('sz',s)}catch(e){}}
 document.documentElement.style.setProperty('--size',s+'px');
 </script>
+<script src="assets/en.js"></script>
+<script src="assets/lang.js"></script>
 </body>
 </html>
